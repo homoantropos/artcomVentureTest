@@ -1,1 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.midHorizontal {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.contentContainer {
+  width: 50%;
+  height: 100vh;
+  float: left;
+  border: dotted gray 1px;
+  overflow: auto;
+  padding: 20px;
+}
+
+div .paginatorSelect {
+  float: right;
+  width: 150px;
+  margin-top: 1px;
+  margin-right: 0;
+}
+
+div .paginatorSelect mat-select {
+  font-family: "Oswald", "Roboto Condensed", sans-serif;
+  font-size: 14px;
+  text-align: right;
+  width: 40px;
+}
+
+div .paginatorSelect small {
+  font-family: "Oswald", "Roboto Condensed", sans-serif;
+  font-size: 11px;
+  vertical-align: 0.1em;
+  color: rgba(0, 0, 0, 0.30);
+  margin-top: 0;
+}
+
+.my-pagination {
+  z-index: 1;
+  font-family: "Oswald", "Roboto Condensed", sans-serif;
+  font-size: 13px;
+  float: right;
+  margin: 0;
+}
