@@ -8,8 +8,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *appNgFor="let product of products |
-      paginate: { itemsPerPage: itemsPerPage, currentPage: paginatorStartPageNumber }">
+      <tr *appNgFor="let product of products">
         <td
           [appProductsListStyling]="product"
           (currentProduct)="setProduct($event)"
@@ -17,26 +16,6 @@
       </tr>
       </tbody>
     </table>
-    <div>
-      <div class="paginatorSelect">
-        <small>
-          рядків на сторінці:
-        </small>
-        <mat-select
-          [(ngModel)]="itemsPerPage"
-        >
-          <mat-option value=5>5</mat-option>
-          <mat-option value=10>10</mat-option>
-          <mat-option value=15>15</mat-option>
-        </mat-select>
-      </div>
-      <pagination-controls
-        class="my-pagination"
-        (pageChange)="paginatorStartPageNumber = $event"
-        previousLabel="назад"
-        nextLabel="уперед"
-      ></pagination-controls>
-    </div>
   </ng-container>
 
   <ng-template #loader>

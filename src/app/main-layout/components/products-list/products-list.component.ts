@@ -28,9 +28,6 @@ export class ProductsListComponent implements OnInit, OnChanges {
 
   productKeys: Array<string> = [];
 
-  paginatorStartPageNumber = 0;
-  itemsPerPage = 20;
-
   constructor(
     private productService: ProductService
   ) { }
