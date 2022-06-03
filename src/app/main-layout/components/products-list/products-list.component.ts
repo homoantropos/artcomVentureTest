@@ -1,4 +1,4 @@
-import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../../../shared-layout/services/product.service";
 import {Product} from "../../../shared-layout/model/interfaces";
 
@@ -6,38 +6,29 @@ import {Product} from "../../../shared-layout/model/interfaces";
   selector: 'app-products-list',
   templateUrl: './products-list.component.html'
 })
-export class ProductsListComponent implements OnInit, OnChanges {
 
+export class ProductsListComponent implements OnInit {
+
+  // product to display in first block
   products: Array<Product>;
-  private _product: Product | null;
-  get product(): Product {
-    return this._product;
-  }
 
+  // product to display in second block
+  productKeys: Array<string> = [];
+  private _product: Product | null;
+  get product(): Product {return this._product;}
   setProduct(product: Product | null) {
       this._product = product;
       this.productKeys = Object.keys(product);
   }
 
-  productKeys: Array<string> = [];
-
-  constructor(
-    private productService: ProductService
-  ) { }
-
-  ngOnChanges(changes: SimpleChanges) {
-
-  }
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
     this.productService.getProducts()
       .subscribe({
-        next: products => {
-          this.products = products
-        },
+        next: products => this.products = products,
         error: error => console.log(error)
-      }
-      )
+      })
   }
 
 }
