@@ -8,22 +8,15 @@ import {Product} from "../../../shared-layout/model/interfaces";
 })
 export class ProductsListComponent implements OnInit, OnChanges {
 
-  // @ts-ignore
   products: Array<Product>;
-  // @ts-ignore
-  private _product: Product;
+  private _product: Product | null;
   get product(): Product {
     return this._product;
   }
 
-  setProduct(product?: Product) {
-    if(typeof product !== 'undefined') {
+  setProduct(product: Product | null) {
       this._product = product;
       this.productKeys = Object.keys(product);
-    } else {
-      this._product = null;
-    }
-
   }
 
   productKeys: Array<string> = [];

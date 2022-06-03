@@ -7,7 +7,6 @@ import {Product} from "../model/interfaces";
 
 export class ProductsListStylingDirective {
 
-  // @ts-ignore
   @Input('appProductsListStyling') product: Product;
   @Output() currentProduct: EventEmitter<Product> = new EventEmitter<Product>();
 
