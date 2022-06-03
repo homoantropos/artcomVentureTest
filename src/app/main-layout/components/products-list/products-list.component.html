@@ -33,7 +33,7 @@
   <tbody>
   <tr *ngFor="let key of productKeys">
     <td>{{key}}</td>
-    <td>{{product[key] | nullCheck}}</td>
+    <td>{{product[key] | nullCheck: key : product}}</td>
   </tr>
 
   </tbody>
