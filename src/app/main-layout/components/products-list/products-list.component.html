@@ -1,0 +1,63 @@
+<div class="contentContainer">
+
+  <ng-container *ngIf="products; else loader">
+    <table class="table table-striped col-sm-12">
+      <thead>
+      <tr>
+        <th>ProductDescription</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *appNgFor="let product of products |
+      paginate: { itemsPerPage: itemsPerPage, currentPage: paginatorStartPageNumber }">
+        <td
+          [appProductsListStyling]="product"
+          (currentProduct)="setProduct($event)"
+        >{{product.ProductDescription}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <div>
+      <div class="paginatorSelect">
+        <small>
+          рядків на сторінці:
+        </small>
+        <mat-select
+          [(ngModel)]="itemsPerPage"
+        >
+          <mat-option value=5>5</mat-option>
+          <mat-option value=10>10</mat-option>
+          <mat-option value=15>15</mat-option>
+        </mat-select>
+      </div>
+      <pagination-controls
+        class="my-pagination"
+        (pageChange)="paginatorStartPageNumber = $event"
+        previousLabel="назад"
+        nextLabel="уперед"
+      ></pagination-controls>
+    </div>
+  </ng-container>
+
+  <ng-template #loader>
+    <app-loader></app-loader>
+  </ng-template>
+</div>
+
+<div class="contentContainer">
+<table class="table table-striped" *ngIf="product">
+  <thead>
+  <tr>
+    <th colspan="2">{{product.ProductDescription}}</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let key of productKeys">
+    <td>{{key}}</td>
+    <td>{{product[key] | nullCheck}}</td>
+  </tr>
+
+  </tbody>
+</table>
+  <mat-icon *ngIf="product" (click)="setProduct()" [ngStyle]="{float: 'right'}">close</mat-icon>
+</div>
