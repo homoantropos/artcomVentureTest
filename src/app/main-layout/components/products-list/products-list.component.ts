@@ -16,9 +16,14 @@ export class ProductsListComponent implements OnInit {
   productKeys: Array<string> = [];
   private _product: Product | null;
   get product(): Product {return this._product;}
-  setProduct(product: Product | null) {
+  setProduct(product?: Product) {
+    if(typeof product !== 'undefined') {
       this._product = product;
       this.productKeys = Object.keys(product);
+    } else {
+      this._product = null;
+    }
+
   }
 
   constructor(private productService: ProductService) { }
