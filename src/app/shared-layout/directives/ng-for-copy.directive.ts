@@ -1,10 +1,19 @@
-import {Directive, Input, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
+import {
+  Directive,
+  DoCheck,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+  TemplateRef,
+  ViewContainerRef
+} from '@angular/core';
 
 @Directive({
   selector: '[appNgForOf]'
 })
 
-export class NgForCopyDirective implements OnInit {
+export class NgForCopyDirective implements OnChanges {
 
   @Input('appNgForOf') dataSource: any;
 
@@ -14,7 +23,7 @@ export class NgForCopyDirective implements OnInit {
   ) {
   }
 
-  ngOnInit() {
+  ngOnChanges(changes: SimpleChanges) {
     this.container.clear();
     for (let i = 0; i < this.dataSource.length; i++) {
       this.container.createEmbeddedView(
@@ -23,7 +32,6 @@ export class NgForCopyDirective implements OnInit {
       )
     }
   }
-
 }
 
 export class NgForDirectiveContext {

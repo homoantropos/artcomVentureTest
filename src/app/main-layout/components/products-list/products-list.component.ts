@@ -23,8 +23,10 @@ export class ProductsListComponent implements OnInit {
     } else {
       this._product = null;
     }
-
   }
+
+  paginatorStartPageNumber = 0;
+  itemsPerPage = 10;
 
   constructor(private productService: ProductService) { }
 
