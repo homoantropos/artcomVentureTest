@@ -14,6 +14,7 @@ import { NgForCopyDirective } from './shared-layout/directives/ng-for-copy.direc
 import { ProductsListStylingDirective } from './shared-layout/directives/products-list-styling.directive';
 import {MatIconModule} from "@angular/material/icon";
 import { NullCheckPipe } from './shared-layout/pipes/null-check.pipe';
+import { CloseAppDirective } from './shared-layout/directives/close-app.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NullCheckPipe } from './shared-layout/pipes/null-check.pipe';
     LoaderComponent,
     NgForCopyDirective,
     ProductsListStylingDirective,
-    NullCheckPipe
+    NullCheckPipe,
+    CloseAppDirective
   ],
     imports: [
         BrowserModule,

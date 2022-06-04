@@ -24,7 +24,7 @@
 </div>
 
 <div class="contentContainer">
-<table class="table table-striped" *ngIf="product">
+<table class="table table-striped" *appCloseApp="!!product">
   <thead>
   <tr>
     <th colspan="2">{{product.ProductDescription}}</th>
