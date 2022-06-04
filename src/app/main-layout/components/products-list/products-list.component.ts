@@ -25,6 +25,9 @@ export class ProductsListComponent implements OnInit {
     }
   }
 
+  searchValue = '';
+  searchField = ['ProductDescription'];
+
   paginatorStartPageNumber = 0;
   itemsPerPage = 10;
 

@@ -15,6 +15,9 @@ import { ProductsListStylingDirective } from './shared-layout/directives/product
 import {MatIconModule} from "@angular/material/icon";
 import { NullCheckPipe } from './shared-layout/pipes/null-check.pipe';
 import { CloseAppDirective } from './shared-layout/directives/close-app.directive';
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
+import { SearchPipe } from './shared-layout/pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -24,18 +27,21 @@ import { CloseAppDirective } from './shared-layout/directives/close-app.directiv
     NgForCopyDirective,
     ProductsListStylingDirective,
     NullCheckPipe,
-    CloseAppDirective
+    CloseAppDirective,
+    SearchPipe
   ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        MatProgressSpinnerModule,
-        MatSelectModule,
-        FormsModule,
-        NgxPaginationModule,
-        MatIconModule
-    ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatProgressSpinnerModule,
+    MatSelectModule,
+    FormsModule,
+    NgxPaginationModule,
+    MatIconModule,
+    MatInputModule,
+    MatButtonModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

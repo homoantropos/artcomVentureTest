@@ -1,3 +1,22 @@
+<div class="midHorizontal col-sm-12 m-a-0">
+  <mat-form-field class="col-sm-12">
+    <mat-label>пошук ...</mat-label>
+    <input matInput
+           title="nameInput"
+           type="text"
+           #nameInput
+           [(ngModel)]="searchValue"
+    >
+  </mat-form-field>
+
+  <button
+    *ngIf="nameInput.value.trim().length > 0"
+    mat-button color="primary"
+    (click)="searchValue = ''"
+  >
+    скинути
+  </button>
+</div>
 <div class="contentContainer">
 
   <ng-container *ngIf="products; else loader">
@@ -8,8 +27,8 @@
       </tr>
       </thead>
       <tbody>
-      <tr *appNgFor="let product of products |
-      paginate: { itemsPerPage: itemsPerPage, currentPage: paginatorStartPageNumber }"
+      <tr *appNgFor="let product of products | search : searchValue : searchField
+       | paginate: { itemsPerPage: itemsPerPage, currentPage: paginatorStartPageNumber }"
       >
         <td
           [appProductsListStyling]="product"
